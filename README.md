@@ -1,6 +1,6 @@
-#Robot Programming Task Jayway
+# Robot Programming Task Jayway
 
-#Description
+## Description
 
 Your task is to program the controller to a robot. It's a simple robot that can walk around in a room where
 the floor is represented as a number of fields in a wire mesh. Input is first two numbers, which tells the
@@ -45,7 +45,7 @@ RFLFFLRF
 Report: 3 1 E
 
 
-##Build Requirements
+## Build Requirements
 
 JDK 1.8
 Apache Maven 3.5.4
