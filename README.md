@@ -67,7 +67,7 @@ Prerequisite: Should have Java JDK version 1.8 or above.
 
 Run the below command to start the program
 
-$ java -jar <path-jar-file>/robot-<version>.jar
+$ java -jar [path-jar-file]/robot-<version>.jar
 
 
 e.g. Assume /tmp/target folder contains Jar file robot-1.0-SNAPSHOT.jar
