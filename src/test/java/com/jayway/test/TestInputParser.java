@@ -91,42 +91,6 @@ public class TestInputParser {
         inputStream.close();
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testInvalidCommands() throws IOException {
-        final InputStream inputStream = new ByteArrayInputStream("5 5\n0 0 E\nRFLFFLRFG".getBytes());
-        InputParser.parseInput(inputStream);
-        inputStream.close();
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testInvalidFieldSize() throws IOException {
-        final InputStream inputStream = new ByteArrayInputStream("5 5 4\n0 0 E\nRFLFFLRF".getBytes());
-        InputParser.parseInput(inputStream);
-        inputStream.close();
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testInvalidCurrentCoordinates() throws IOException {
-        final InputStream inputStream = new ByteArrayInputStream("5 5\n1 5 0 E\nRFLFFLRF".getBytes());
-        InputParser.parseInput(inputStream);
-        inputStream.close();
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testCurrentCoordinatesDepthExceedFieldDepth() throws IOException {
-        final InputStream inputStream = new ByteArrayInputStream("5 5\n0 5 E\nRFLFFLRF".getBytes());
-        InputParser.parseInput(inputStream);
-        inputStream.close();
-    }
-
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testCurrentCoordinatesWidthExceedFieldWidth() throws IOException {
-        final InputStream inputStream = new ByteArrayInputStream("5 5\n5 0 E\nRFLFFLRF".getBytes());
-        InputParser.parseInput(inputStream);
-        inputStream.close();
-    }
-
     @Test
     public void testExample3() throws IOException {
         final InputStream inputStream = new ByteArrayInputStream(("10 11\n0 0 E\nFFFFFFFF" +
@@ -166,21 +130,6 @@ public class TestInputParser {
                 "FFFFFFFFFFFFFFFFFFFFFFFFFFFFL").getBytes());
         Robot testRobot = InputParser.parseInput(inputStream);
         assertEquals(testRobot.getReport(), "Report: 0 121 E");
-        inputStream.close();
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testInvalidFieldCoordinates() throws IOException {
-        final InputStream inputStream = new ByteArrayInputStream(("R 122\n0 0 S\nFFFFFFFF" +
-                "FFFFFFFFFFFFFFFFFFFFL").getBytes());
-        InputParser.parseInput(inputStream);
-        inputStream.close();
-    }
-    @Test(expected = IllegalArgumentException.class)
-    public void testInvalidRobotCoordinates() throws IOException {
-        final InputStream inputStream = new ByteArrayInputStream(("12 122\nR 0 S\nFFFFFFFF" +
-                "FFFFFFFFFFFFFFFFFFFFL").getBytes());
-        InputParser.parseInput(inputStream);
         inputStream.close();
     }
 }
